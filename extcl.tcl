@@ -127,51 +127,23 @@ proc getopt { optOutputVarName opts args } {
   return $result
 }
 
-proc lindex_interpret { list index } {
-  # check if input is valid
-  if { ![regexp {^([-+]?\d+|end)([-+]\d+)?$} $index] } {
-    error "bad index \"$index\": must be integer?\[+-\]integer? or end?\[+-\]integer?"
-  }
-
-  # check if the format is end?[+-]integer?
-  lassign [regexp -inline {^end([+-]\d+)?$} $index] isEndFmt modifier
-
-  if { $isEndFmt != "" } {
-    set index [expr {[llength $list] - 1}]$modifier
-  }
-
-  return [expr $index]
-}
-
-proc linsert! { listVarName args } {
-  upvar $listVarName list
-  set list [linsert $list {*}$args]
-}
-
-proc ldelete { list first last } {
-  set first [lindex_interpret $list $first]
-  set last  [lindex_interpret $list $last]
-  incr first -1
-  incr last
-
-  if { $last < $first } {
-    return $list
-  }
-
-  return [concat [lrange $list 0 $first] [lrange $list $last end]]
-}
-
-proc ldelete! { listVarName args } {
-  upvar $listVarName list
-  set list [ldelete $list {*}$args]
-}
-
-proc lrange! { listVarName args } {
-  upvar $listVarName list
-  set list [lrange $list {*}$args]
-}
-
 namespace eval extclInternal {
+  proc lindex_interpret { list index } {
+    # check if input is valid
+    if { ![regexp {^([-+]?\d+|end)([-+]\d+)?$} $index] } {
+      error "bad index \"$index\": must be integer?\[+-\]integer? or end?\[+-\]integer?"
+    }
+
+    # check if the format is end?[+-]integer?
+    lassign [regexp -inline {^end([+-]\d+)?$} $index] isEndFmt modifier
+
+    if { $isEndFmt != "" } {
+      set index [expr {[llength $list] - 1}]$modifier
+    }
+
+    return [expr $index]
+  }
+
   proc lpop { listVarName n range } {
     upvar $listVarName list
 
@@ -189,6 +161,19 @@ namespace eval extclInternal {
   }
 }
 
+proc ldelete { list first last } {
+  set first [::extclInternal::lindex_interpret $list $first]
+  set last  [::extclInternal::lindex_interpret $list $last]
+  incr first -1
+  incr last
+
+  if { $last < $first } {
+    return $list
+  }
+
+  return [concat [lrange $list 0 $first] [lrange $list $last end]]
+}
+
 proc lpopr { listVarName { n 1 } } {
   upvar $listVarName list
   ::extclInternal::lpop list $n {end-$n end}
@@ -197,4 +182,19 @@ proc lpopr { listVarName { n 1 } } {
 proc lpopl { listVarName { n 1 } } {
   upvar $listVarName list
   ::extclInternal::lpop list $n {0 $n}
+}
+
+proc linsert! { listVarName args } {
+  upvar $listVarName list
+  set list [linsert $list {*}$args]
+}
+
+proc lrange! { listVarName args } {
+  upvar $listVarName list
+  set list [lrange $list {*}$args]
+}
+
+proc ldelete! { listVarName args } {
+  upvar $listVarName list
+  set list [ldelete $list {*}$args]
 }
