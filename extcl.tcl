@@ -171,17 +171,30 @@ proc lrange! { listVarName args } {
   set list [lrange $list {*}$args]
 }
 
+namespace eval extclInternal {
+  proc lpop { listVarName n range } {
+    upvar $listVarName list
+
+    if { $n < 0 } {
+      error "bad size \"$n\": must be a non-negative integer"
+    } elseif { $n == 0 } {
+      return
+    }
+
+    incr n -1
+    set range  [expr "\"$range\""]
+    set result [lrange $list {*}$range]
+    ldelete! list {*}$range
+    return $result
+  }
+}
+
 proc lpopr { listVarName { n 1 } } {
   upvar $listVarName list
+  ::extclInternal::lpop list $n {end-$n end}
+}
 
-  if { $n < 0 } {
-    error "bad size \"$n\": must be a non-negative integer"
-  } elseif { $n == 0 } {
-    return
-  }
-
-  incr n -1
-  set result [lrange $list end-$n end]
-  ldelete! list end-$n end
-  return $result
+proc lpopl { listVarName { n 1 } } {
+  upvar $listVarName list
+  ::extclInternal::lpop list $n {0 $n}
 }
