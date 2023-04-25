@@ -173,6 +173,13 @@ proc lrange! { listVarName args } {
 
 proc lpopr { listVarName { n 1 } } {
   upvar $listVarName list
+
+  if { $n < 0 } {
+    error "bad size \"$n\": must be a non-negative integer"
+  } elseif { $n == 0 } {
+    return
+  }
+
   incr n -1
   set result [lrange $list end-$n end]
   ldelete! list end-$n end
