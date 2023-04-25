@@ -126,3 +126,26 @@ proc getopt { optOutputVarName opts args } {
 
   return $result
 }
+
+proc linsert! { listVarName args } {
+  upvar $listVarName list
+  set list [linsert $list {*}$args]
+}
+
+proc ldelete { list first last } {
+  if { $last < $first } {
+    return $list
+  }
+
+  return [concat [lrange $list 0 $first-1] [lrange $list $last+1 end]]
+}
+
+proc ldelete! { listVarName args } {
+  upvar $listVarName list
+  set list [ldelete $list {*}$args]
+}
+
+proc lrange! { listVarName args } {
+  upvar $listVarName list
+  set list [lrange $list {*}$args]
+}
