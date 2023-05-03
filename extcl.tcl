@@ -1,3 +1,6 @@
+package require Tcl 8.6
+package provide exTcl 0.1
+
 proc locjoin { listValue word } {
   set listValue [join $listValue ", "]
   set commaI    [string last , $listValue]
