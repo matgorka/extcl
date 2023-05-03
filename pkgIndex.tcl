@@ -1,1 +1,1 @@
-package ifneeded exTcl 0.1 [source [file join $dir extcl.tcl]]
+package ifneeded exTcl 0.1 [list source [file join $dir extcl.tcl]]
