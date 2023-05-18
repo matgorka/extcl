@@ -31,13 +31,13 @@
 
   `optOutputVarName` is the variable name that will store options parsed from given arguments. The variable it points to can be either an array or a dictionary.
 
-  `opts` is a dictionary where key is the option name and value is a list of value types accepted by that option (an empty list is supported). Elements of such lists need to be: string classes, "string"/"any" values or nested lists starting with "enum"/"glob"/"regexp" value followed by allowed values. "enum"/"glob"/"regexp" all act as enums, but they differ how values are compared: they use -exact, -glob, -regexp comparisons, respectively.
+  `opts` is a dictionary where key is the option name and value is a list of value types accepted by that option (an empty list is supported). Elements of such lists need to be: string classes, "string"/"any" values, or nested lists starting with "enum"/"glob"/"regexp" value followed by allowed values. "enum"/"glob"/"regexp" all act as enums, but they differ in how values are compared: they use -exact, -glob, and -regexp comparisons, respectively.
 
   The arguments that are parsed are given after `optOutputVarName` and `opts`.
-  Returned value is a list of arguments with options left out.
-  If the input is invalid (whether opts or parsed args are invalid) it throws appropriate error.
+  The returned value is a list of arguments with options left out.
+  If the input is invalid (whether opts or parsed args are invalid), it throws an appropriate error.
 
-  Boolean options are saved as `true` in the array/dictionary pointed by `optOutputVarName`.
+  Boolean options are saved as `true` in the array/dictionary pointed to by `optOutputVarName`.
 
   **Examples:**
 
@@ -66,7 +66,7 @@
   }
   ```
 
-  The example above creates a command with `llast ?-index? listValue` syntax. By default it returns the last element of a list. When `-index` is provided the command returns index of the last element that can be replaced by `lset`.
+  The example above creates a command with the `llast ?-index? listValue` syntax. By default, it returns the last element of a list. When `-index` is provided, the command returns the index of the last element that can be replaced by `lset`.
 
   Examples of opts:
   ```Tcl
@@ -77,11 +77,11 @@
   }
   ```
 
-  It means that accepted options are: `?-foo? ?-bar value1 value2? ?-baz 1/2?`
+  It means that accepted options are: `?-foo? ?-bar value1 value2? ?-baz 1/2?`.
 
   `{ n integer }`
 
-  ...is interpreted as `?-n integerValue?`
+  ...is interpreted as `?-n integerValue?`.
 
 
 - ***lpopl*** - Pops value(s) from the beginning of a list.
@@ -94,7 +94,7 @@
 
   `lpopr listVarName ?n?`
 
-  `lpopl` and `lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If `n` value isn't specified it defaults to 1 element.
+  `lpopl` and `lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If the `n` value isn't specified, it defaults to 1 element.
 
   **Examples:**
 
@@ -117,7 +117,7 @@
 
   `ldelete list first last`
 
-  `ldelete` accepts the same arguments as `lrange`, but has a functionally reversed behavior. It deletes specified range and returns the remaining part of a list.
+  `ldelete` accepts the same arguments as `lrange` but has a functionally reversed behavior. It deletes the specified range and returns the remaining part of a list.
 
   ```Tcl
   set foo [list A B C]
@@ -140,7 +140,7 @@
 
   `linsert! listVarName index ?element...`
 
-  These are sister commands to exTcl's `ldelete` and Tcl standard commands: `lrange` and `linsert`. Their syntax is almost the same as their original counterparts with a slight change - the first argument isn't a list, but the variable name of a list. These commands with *bang* mutate the variable (naming convention is inspired by Scheme).
+  These are sister commands to exTcl's `ldelete` and Tcl standard commands: `lrange` and `linsert`. Their syntax is almost the same as their original counterparts, with a slight change: the first argument isn't a list but a variable name of a list. These commands with *bang* mutate the variable (the naming convention is inspired by Scheme).
 
   They are shorthands for already existing functionality:
 
