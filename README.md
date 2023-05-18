@@ -1,6 +1,6 @@
 # exTcl 0.1 documentation
 
-- **locjoin** - Joins lists for localized messages.
+- **locjoin** - Linguistic join. Joins lists for user messages.
 
   **Syntax:**
 
