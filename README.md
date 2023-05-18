@@ -23,7 +23,7 @@
   returns "1, 2, or 3".
 
 
-- **getopt** - Parses options in arguments
+- **getopt** - Parses options in arguments.
 
   **Syntax:**
 
@@ -81,3 +81,43 @@
   `{ n integer }`
 
   ...is interpreted as `?-n integerValue?`
+
+
+- **lpopl** - Pops value(s) from the beginning of a list.
+  **lpopr** - Pops value(s) from the end of a list.
+
+  **Syntax:**
+
+  `lpopl listVarName ?n?`
+  `lpopr listVarName ?n?`
+
+  `lpopl`/`lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If `n` value isn't specified it defaults to 1 element.
+
+  **Examples:**
+
+  ```Tcl
+  set foo [list 1 2 3]
+  puts [lpopl foo]     ;# displays 1
+  puts $foo            ;# displays 2 3
+  ```
+
+  ```Tcl
+  set foo [list 1 2 3]
+  puts [lpopr foo]     ;# displays 3
+  puts $foo            ;# displays 1 2
+  ```
+
+
+- **ldelete** - Deletes values from a given range of a list.
+
+  **Syntax:**
+
+  `ldelete list first last`
+
+  `ldelete` has a functionally reversed behavior to lrange.
+
+  ```Tcl
+  set foo [list A B C]
+  puts [lrange $list 1 1]  ;# displays B
+  puts [ldelete $list 1 1] ;# displays A C
+  ```
