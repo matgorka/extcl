@@ -93,7 +93,7 @@
 
   `lpopr listVarName ?n?`
 
-  `lpopl`/`lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If `n` value isn't specified it defaults to 1 element.
+  `lpopl` and `lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If `n` value isn't specified it defaults to 1 element.
 
   **Examples:**
 
@@ -116,7 +116,7 @@
 
   `ldelete list first last`
 
-  `ldelete` has a functionally reversed behavior to lrange.
+  `ldelete` accepts the same arguments as `lrange`, but has a functionally reversed behavior. It deletes specified range and returns the remaining part of a list.
 
   ```Tcl
   set foo [list A B C]
