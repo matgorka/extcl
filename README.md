@@ -65,7 +65,7 @@
   }
   ```
 
-  The example above creates a function with `llast ?-index? listValue` syntax. When `-index` is provided the function returns the last index that can be set by `lset`. Otherwise it will return the last element of a list.
+  The example above creates a command with `llast ?-index? listValue` syntax. When `-index` is provided the command returns the last index that can be set by `lset`. Otherwise it will return the last element of a list.
 
   Examples of opts:
   ```Tcl
@@ -123,3 +123,36 @@
   puts [lrange $list 1 1]  ;# displays B
   puts [ldelete $list 1 1] ;# displays A C
   ```
+
+
+- **ldelete!**
+
+  **lrange!**
+
+  **linsert!**
+
+  **Syntax:**
+
+  `ldelete! listVarName first last`
+
+  `lrange! listVarName first last`
+
+  `linsert! listVarName index ?element...`
+
+  These are sister commands to exTcl's `ldelete` and Tcl standard commands: `lrange` and `linsert`. Their syntax is almost the same with a slight change - the first argument isn't a list, but the variable name of a list. These commands with *bang* mutate the variable (naming convention is inspired by Scheme).
+
+  They are shorthands for already existing functionality:
+
+  ```Tcl
+  set foo [list B C]
+  set foo [linsert $foo 0 A]
+  ```
+
+  vs
+
+  ```Tcl
+  set foo [list B C]
+  linsert! foo 0 A
+  ```
+
+  etc...
