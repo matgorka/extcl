@@ -65,7 +65,7 @@
   }
   ```
 
-  The example above creates a command with `llast ?-index? listValue` syntax. When `-index` is provided the command returns the last index that can be set by `lset`. Otherwise it will return the last element of a list.
+  The example above creates a command with `llast ?-index? listValue` syntax. By default it returns the last element of a list. When `-index` is provided the command returns index of the last element that can be replaced by `lset`.
 
   Examples of opts:
   ```Tcl
