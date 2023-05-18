@@ -1,7 +1,7 @@
 package require Tcl 8.6
 package provide exTcl 0.1
 
-proc locjoin { listValue word } {
+proc lingjoin { listValue word } {
   set listValue [join $listValue ", "]
   set commaI    [string last , $listValue]
 
@@ -23,7 +23,7 @@ proc getopt { optOutputVarName opts args } {
 
   if { [llength $opts] > 0 } {
     set validOpts [lmap optKey [dict keys $opts] {expr {"-$optKey"}}]
-    set validOpts "must be [locjoin $validOpts or]"
+    set validOpts "must be [lingjoin $validOpts or]"
   } else {
     set validOpts "no options supported"
   }
@@ -89,7 +89,7 @@ proc getopt { optOutputVarName opts args } {
           set optValues [lrange $optArg 1 end]
 
           if { [lsearch $lsearchOpt $optValues $arg] == -1 } {
-            error "bad -$key value \"$arg\": must be [locjoin $optValues or]"
+            error "bad -$key value \"$arg\": must be [lingjoin $optValues or]"
           }
         }
       }

@@ -1,24 +1,24 @@
 # exTcl 0.1 documentation
 
-- **locjoin** - Linguistic join. Joins lists for user messages.
+- **lingjoin** - Linguistic join. Joins lists for user messages.
 
   **Syntax:**
 
-  `locjoin list word`
+  `lingjoin list word`
 
   **Examples:**
 
-  `locjoin { foo bar baz } and`
+  `lingjoin { foo bar baz } and`
 
   returns "foo, bar and baz".
 
-  `locjoin { yes no } or`
+  `lingjoin { yes no } or`
 
   returns "yes or no".
 
   It supports commas in separator words:
 
-  `locjoin { 1 2 3 } ", or"`
+  `lingjoin { 1 2 3 } ", or"`
 
   returns "1, 2, or 3".
 
