@@ -140,7 +140,7 @@
 
   `linsert! listVarName index ?element...`
 
-  These are sister commands to exTcl's `ldelete` and Tcl standard commands: `lrange` and `linsert`. Their syntax is almost the same as their original counterparts, with a slight change: the first argument isn't a list but a variable name of a list. These commands with *bang* mutate the variable (the naming convention is inspired by Scheme).
+  These are sister commands to exTcl's `ldelete` and Tcl standard commands: `lrange` and `linsert`. Their syntax is almost the same as their original counterparts, with a slight change: the first argument isn't a list but a variable name of a list. These commands with *bang* mutate the variable (their naming convention is inspired by Scheme).
 
   They are shorthands for already existing functionality:
 
