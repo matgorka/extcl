@@ -51,11 +51,12 @@
     }
 
     set listValue [lindex $args 0]
-    set i         [expr {[llength $listValue] - 1}]
 
     if { !$flags(index) } {
-      return [lindex $listValue $i]
+      return [lindex $listValue end]
     }
+
+    set i [expr {[llength $listValue] - 1}]
 
     if { $i < 0 } {
       return 0
