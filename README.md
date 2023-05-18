@@ -120,8 +120,8 @@
 
   ```Tcl
   set foo [list A B C]
-  puts [lrange $list 1 1]  ;# displays B
-  puts [ldelete $list 1 1] ;# displays A C
+  puts [lrange $foo 1 1]  ;# displays B
+  puts [ldelete $foo 1 1] ;# displays A C
   ```
 
 
