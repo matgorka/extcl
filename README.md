@@ -84,11 +84,13 @@
 
 
 - **lpopl** - Pops value(s) from the beginning of a list.
+
   **lpopr** - Pops value(s) from the end of a list.
 
   **Syntax:**
 
   `lpopl listVarName ?n?`
+
   `lpopr listVarName ?n?`
 
   `lpopl`/`lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If `n` value isn't specified it defaults to 1 element.
