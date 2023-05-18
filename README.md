@@ -1,6 +1,6 @@
 # exTcl 0.1 documentation
 
-- **lingjoin** - Linguistic join. Joins lists for user messages.
+- ***lingjoin*** - Linguistic join. Joins lists for user messages.
 
   **Syntax:**
 
@@ -23,7 +23,7 @@
   returns "1, 2, or 3".
 
 
-- **getopt** - Parses options in arguments.
+- ***getopt*** - Parses options in arguments.
 
   **Syntax:**
 
@@ -84,9 +84,9 @@
   ...is interpreted as `?-n integerValue?`
 
 
-- **lpopl** - Pops value(s) from the beginning of a list.
+- ***lpopl*** - Pops value(s) from the beginning of a list.
 
-  **lpopr** - Pops value(s) from the end of a list.
+  ***lpopr*** - Pops value(s) from the end of a list.
 
   **Syntax:**
 
@@ -111,7 +111,7 @@
   ```
 
 
-- **ldelete** - Deletes values from a given range of a list.
+- ***ldelete*** - Deletes values from a given range of a list.
 
   **Syntax:**
 
@@ -126,13 +126,13 @@
   ```
 
 
-- **ldelete!**
+- ***ldelete!***
 
-  **lrange!**
+  ***lrange!***
 
-  **linsert!**
+  ***linsert!***
 
-  **Syntax:**
+  ***Syntax:***
 
   `ldelete! listVarName first last`
 
