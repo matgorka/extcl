@@ -132,7 +132,7 @@
 
   ***linsert!***
 
-  ***Syntax:***
+  **Syntax:**
 
   `ldelete! listVarName first last`
 
