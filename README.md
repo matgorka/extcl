@@ -1,5 +1,17 @@
 # exTcl 0.1 documentation
 
+## Installation
+
+Download the source code from releases. Then install it just like any other package.
+
+## Package usage
+
+```Tcl
+package require exTcl 0.1
+```
+
+## Commands
+
 - ***lingjoin*** - Linguistic join. Joins lists for user messages.
 
   **Syntax:**
