@@ -2,7 +2,7 @@
 
 ## Installation
 
-Download the source code from releases. Then install it just like any other package.
+Download the source code from releases. Then install it just like any other package. The minimum required version of Tcl is 8.6.
 
 ## Package usage
 
