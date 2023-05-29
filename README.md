@@ -7,7 +7,7 @@ Download the source code from releases. Then install it just like any other pack
 ## Package usage
 
 ```Tcl
-package require exTcl 0.1
+package require exTcl 0.1.1
 ```
 
 ## Commands
