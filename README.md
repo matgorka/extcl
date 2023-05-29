@@ -106,8 +106,8 @@ package require exTcl 0.1
 
   `lpopr listVarName ?n?`
 
-  `lpopl` and `lpopr` delete `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If the `n` value isn't specified, it defaults to 1 element. Important notes:
-  - when `n` is specified, `lpopl`/`lpopr` always return a list of elements, otherwise they return one element of a list. `lpopr listVarName 1` and `lpopr listVarName` aren't functionally the same, as the first one will return one-element list (at most), while the second command will return the last element itself (at most).
+  `lpopl` and `lpopr` delete at most `n` elements from the beggining/end of a list pointed by `listVarName` and return these deleted elements. If the `n` value isn't specified, it defaults to 1 element. Important notes:
+  - when `n` is specified, `lpopl`/`lpopr` always return a list of elements, otherwise they return one element of a list. `lpopr listVarName 1` and `lpopr listVarName` aren't functionally the same, as the first one will return one-element list, while the second command will return the last element itself.
   - `n` is the maximum number of values popped from a list, therefore if you want to pop 3 elements, but the list contains only 2, no error will be produced, and a list of 2 elements will be returned - same logic applied when `n` isn't specified
 
   **Examples:**
