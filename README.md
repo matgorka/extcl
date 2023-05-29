@@ -110,6 +110,8 @@ package require exTcl 0.1.1
   - when `n` is specified: `lpopl`/`lpopr` always return a list of elements; otherwise (when `n` isn't specified): they return one element of a list. `lpopr listVarName 1` and `lpopr listVarName` aren't functionally the same, as the first one will return a one-element list, while the second command will return the last element itself.
   - `n` is the maximum number of values popped from a list. Therefore, if you want to pop 3 elements but the list contains only 2, no error will be produced, and a list of 2 elements will be returned. The same logic applies when `n` isn't specified.
 
+  Prior to version 0.1.1, `lpopl`/`lpopr` always returned a list.
+
   **Examples:**
 
   ```Tcl
