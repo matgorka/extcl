@@ -1,5 +1,5 @@
 package require Tcl 8.6
-package provide exTcl 0.1
+package provide exTcl 0.1.1
 
 proc lingjoin { listValue word } {
   set listValue [join $listValue ", "]
@@ -160,6 +160,12 @@ namespace eval extclInternal {
     set range  [expr "\"$range\""]
     set result [lrange $list {*}$range]
     ldelete! list {*}$range
+
+    # if n isn't provided to lpopl or lpopr
+    if { [llength [dict get [info frame -2] cmd]] == 2 } {
+      return [lindex $result 0]
+    }
+
     return $result
   }
 }
