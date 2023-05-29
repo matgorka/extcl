@@ -1,4 +1,4 @@
-# exTcl 0.1 documentation
+# exTcl 0.1.1 documentation
 
 ## Installation
 
